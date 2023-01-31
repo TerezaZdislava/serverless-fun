@@ -4,6 +4,7 @@ const MONGODB_URI =
 let cachedDb = null;
 
 async function connectToDatabase() {
+  console.log('4');
   if (cachedDb) {
     console.log('cachedDb');
     return cachedDb;
