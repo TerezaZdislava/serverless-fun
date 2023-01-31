@@ -11,7 +11,9 @@ async function connectToDatabase() {
   }
 
   const client = await MongoClient.connect(MONGODB_URI);
+  console.log('client ' + client);
   const db = await client.db('food');
+  console.log('db ' + db);
   cachedDb = db;
   return db;
 }
