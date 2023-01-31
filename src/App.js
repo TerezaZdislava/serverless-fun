@@ -1,18 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  // const [mes, setMes] = useState();
+  const [meals, setMeals] = useState();
 
   const fetchData = async () => {
     const result = await axios.post('/.netlify/functions/getMeals', {
       diet: 'vegan',
       meals: 5,
     });
-    console.log(result.data);
-    // setMes(result.data);
+    // console.log(result.data);
+    setMeals(result.data);
   };
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <p>{mes}</p> */}
+        <p>{JSON.stringify(meals)}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
