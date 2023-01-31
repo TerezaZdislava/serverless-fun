@@ -20,7 +20,7 @@ exports.handler = async function (event, context, callback) {
     ])
     .toArray();
   menu.breakfast = breakfast[0];
-
+  console.log('menu.breakfast ' + menu.breakfast);
   // if (numberOfMeals === 5) {
   //   let snack = await db
   //     .collection('meals')
