@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Articles from '../components/articles';
 import data from '../data/faq.json';
 import { imagesArray } from '../data/images';
@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   let [question, setquestion] = useState(null);
   const navigate = useNavigate();
-
-  // const http = 'http://localhost:5000/record';
 
   return (
     <div className="home">
@@ -32,7 +30,6 @@ function Home() {
               onClick={() => navigate('/form')}
             >
               Get my healthy menu
-              {/* <img src="../../../assets/icons/arrow-right-small.svg"> */}
             </button>
           </div>
           <div className="images">
