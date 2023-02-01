@@ -1,3 +1,17 @@
+// const { MongoClient } = require('mongodb');
+// const mongoClient = new MongoClient(
+//   'mongodb+srv://me:Teruse666@jidelnicek.djbghxk.mongodb.net/?retryWrites=true&w=majority',
+// );
+// const clientPromise = mongoClient.connect();
+
+// async function connectToDatabase() {
+//   const database = (await clientPromise).db('food');
+//   return database;
+// }
+
+// exports.connectToDatabase = connectToDatabase;
+// exports.module = connectToDatabase;
+
 // const MongoClient = require('mongodb').MongoClient;
 // const MONGODB_URI =
 //   'mongodb+srv://me:Teruse666@jidelnicek.djbghxk.mongodb.net/?retryWrites=true&w=majority';
