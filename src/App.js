@@ -1,39 +1,63 @@
-import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import CountCalories from './functions/countCalories';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import UserForm from './pages/UserForm';
 
 function App() {
   const [meals, setMeals] = useState();
+  const [calories, setCalories] = useState();
+  const [formData, setFormData] = useState();
+  const navigate = useNavigate();
 
-  const fetchData = async () => {
+  const fetchData = async (formData) => {
     const result = await axios.post('/.netlify/functions/getMeals', {
-      diet: 'vegan',
-      meals: 5,
+      diet: formData.diet,
+      meals: formData.numberOfMeals,
     });
-    // console.log(result.data);
     setMeals(result.data);
+    navigate('/menu');
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  function CountCal(formData) {
+    const result = CountCalories(formData);
+    setCalories(result);
+  }
+
+  function handleFormChange(formData) {
+    CountCal(formData);
+    fetchData(formData);
+    setFormData(formData);
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{JSON.stringify(meals)}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route
+        path="/menu"
+        element={
+          <Menu
+            menu={meals}
+            goal={formData?.goal}
+            calories={calories}
+            diet={formData?.diet}
+          />
+        }
+      />
+      <Route
+        path="/form"
+        element={
+          <UserForm
+            sendformToParent={(e) => {
+              handleFormChange(e);
+            }}
+          />
+        }
+      />
+    </Routes>
   );
 }
 
