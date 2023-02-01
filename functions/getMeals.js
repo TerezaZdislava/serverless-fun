@@ -1,13 +1,11 @@
 const { MongoClient } = require('mongodb');
-const mongoClient = new MongoClient(
-  'mongodb+srv://me:Teruse666@jidelnicek.djbghxk.mongodb.net/?retryWrites=true&w=majority',
-);
+const mongoClient = new MongoClient(process.env.ATLAS_URI);
 const clientPromise = mongoClient.connect();
 
 const handler = async (event) => {
   console.log(1);
   try {
-    const database = (await clientPromise).db('food');
+    const database = (await clientPromise).db(process.env.DATABASE);
     const collection = database.collection('meals');
     console.log(2);
     const results = await collection
