@@ -8,7 +8,7 @@ import {
 
 function BodyFat({ formData, setFormData, formquestions }) {
   function handleChange(event, newValue) {
-    console.log(newValue);
+    // console.log(newValue);
     setFormData({
       ...formData,
       bodyFat: newValue,

@@ -5,7 +5,6 @@ import Diets from '../components/form/Diets';
 import Personal from '../components/form/Personal';
 import StepperWrapper from '../components/form/StepperWrapper';
 import formquestions from '../data/form.json';
-// import FormDataInt from '../interface/form';
 import DefaultFormDataInt from '../interface/formData';
 import '../styles/form.scss';
 

@@ -17,7 +17,7 @@ export function UseMealData(form) {
       }
       const newData = await response.json();
       setData(newData);
-      console.log();
+      // console.log();
       return newData;
     }
     getRecords();

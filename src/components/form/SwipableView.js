@@ -1,9 +1,3 @@
-// import { FormQuestionObj } from '../../interface/question';
-// export interface propsType {
-//   questionArray: Array<FormQuestionObj>;
-//   questionType: 'checkbox' | 'radio' | 'slider';
-// }
-
 function SwipableView(props) {
   return (
     <div>

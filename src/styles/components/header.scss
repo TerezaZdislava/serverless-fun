@@ -7,7 +7,6 @@ $blue: #00467f;
   flex-direction: column;
 }
 .header {
-  // background-color: $primary;
   height: 80px;
   display: flex;
   align-items: center;
@@ -72,9 +71,6 @@ $blue: #00467f;
     background-color: var(--light-grey);
     color: var(--blue);
   }
-  // .login:hover {
-  //   background-color: darken($blue, 10%);
-  // }
 }
 
 .logo {
@@ -135,7 +131,6 @@ $blue: #00467f;
     display: flex;
     flex-direction: column;
     background-color: var(--grey);
-    // transition: all .5s ease-out;
     animation-name: example;
     animation-duration: 0.3s;
     .content {
