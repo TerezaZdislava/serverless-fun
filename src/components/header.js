@@ -37,7 +37,6 @@ function Header() {
         <button className="logo" onClick={() => navigate('/')}>
           <img src={logo} alt={logo} />
         </button>
-        {/* <object data="bubo-app/src/assets/icons/logo - square.svg" width="50" height="50"> </object> */}
         <div className="links">
           <span>
             <a href="#faq">FAQ</a>
@@ -92,8 +91,15 @@ function Header() {
             </div>
             <hr />
             <div className="account">
-              <button className="signin">Přihlásit</button>
-              <button className="login button-primary">Vytvořit účet</button>
+              <button className="signin" onClick={() => navigate('/login')}>
+                Přihlásit
+              </button>
+              <button
+                className="login button-primary"
+                onClick={() => navigate('/login')}
+              >
+                Vytvořit účet
+              </button>
             </div>
           </div>
         </div>

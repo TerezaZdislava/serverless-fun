@@ -39,7 +39,12 @@ function Footer() {
             and you won't miss a thing.
           </span>
           <div className="subscribe">
-            <input placeholder="E-mail" />
+            <input
+              placeholder="email@example.com"
+              type="email"
+              pattern=".+@example\.com"
+              size="64"
+            />
             <button>Send</button>
           </div>
         </div>

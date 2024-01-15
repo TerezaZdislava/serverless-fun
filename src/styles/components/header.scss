@@ -57,6 +57,9 @@ $blue: #00467f;
   }
 }
 .account {
+  button {
+    cursor: default;
+  }
   .signin {
     color: var(--black);
     font-size: 18px;

@@ -1,12 +1,10 @@
-import { useState } from 'react';
 import Articles from '../components/articles';
-import data from '../data/faq.json';
+import Faq from '../components/faq';
 import { imagesArray } from '../data/images';
 import '../styles/home.scss';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  let [question, setquestion] = useState(null);
   const navigate = useNavigate();
 
   return (
@@ -29,7 +27,7 @@ function Home() {
               className="button-primary"
               onClick={() => navigate('/form')}
             >
-              Get my healthy menu
+              Get healthy menu for free
             </button>
           </div>
           <div className="images">
@@ -63,13 +61,12 @@ function Home() {
               className="button-primary"
               onClick={() => navigate('/form')}
             >
-              Get me my healthy menu
+              Get healthy menu for free
             </button>
           </div>
         </div>
       </section>
       <section className="benefits">
-        {/* <img className="map" src="../../../assets/icons/map-pattern.svg" alt="map-pattern" /> */}
         <div className="images">
           <img
             className="img1 square"
@@ -102,43 +99,8 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <section className="faq" id="faq">
-        <h1>FAQ</h1>
-        <div className="container">
-          <div className="box-left">
-            {data.map(function (elm, i) {
-              if (i % 2 === 0)
-                return (
-                  <div className="question" key={elm.id}>
-                    <div className="top">
-                      <h2>{elm.q}</h2>
-                      <button onClick={() => setquestion(elm.id)}>open</button>
-                    </div>
-                    {question === elm.id && <span>{elm.a}</span>}
-                  </div>
-                );
-              else return null;
-            })}
-          </div>
-          <div className="box-right">
-            {data.map(function (elm, i) {
-              if (i % 2)
-                return (
-                  <div className="question" key={elm.id}>
-                    <div className="top">
-                      <h2>{elm.q}</h2>
-                      <button onClick={() => setquestion(elm.id)}>open</button>
-                    </div>
-                    {question === elm.id && <span>{elm.a}</span>}
-                  </div>
-                );
-              else return null;
-            })}
-          </div>
-        </div>
-      </section>
-      <Articles></Articles>
+      <Faq />
+      <Articles />
     </div>
   );
 }

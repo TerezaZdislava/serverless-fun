@@ -13,6 +13,7 @@ function Menu({ menu, goal, calories, diet }) {
   const handleTabChange = (event, newTabIndex) => {
     setTabIndex(newTabIndex);
   };
+
   function modifyDietNames(diet) {
     switch (diet) {
       case 'vegan':
