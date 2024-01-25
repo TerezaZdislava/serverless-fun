@@ -1,7 +1,7 @@
 .news {
   background-color: var(--dark-blue);
-  margin-top: 100px;
-  padding-block: 100px;
+  padding-top: 50px;
+  padding-bottom: 100px;
   padding-inline: var(--margin-box);
   color: var(--white);
   .text {
@@ -20,14 +20,7 @@
 }
 @media (max-width: 1200px) {
   .news {
-    padding: 0;
-    .carousel {
-      padding: 30px;
-    }
-    h1 {
-      padding-inline: var(--margin-box);
-      padding-top: 100px;
-    }
+    padding-inline: 100px;
   }
 }
 @media (max-width: 800px) {

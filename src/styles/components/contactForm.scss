@@ -1,6 +1,5 @@
 .contact-form {
   background-color: var(--dark-blue);
-  padding-block: 100px;
   padding-inline: var(--margin-box);
   color: var(--white);
   h1 {
@@ -19,7 +18,6 @@
     border-radius: 25px;
     font-weight: bold;
     border: none;
-    margin-top: 30px;
     width: fit-content;
     align-self: end;
   }
@@ -57,7 +55,11 @@
     }
   }
 }
-
+@media (max-width: 1200px) {
+  .contact-form {
+    padding-inline: 100px;
+  }
+}
 @media (max-width: 900px) {
   .contact-form {
     padding: 20px;
