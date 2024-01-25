@@ -7,19 +7,20 @@ import StepperWrapper from '../components/form/StepperWrapper';
 import formquestions from '../data/form.json';
 import DefaultFormDataInt from '../interface/formData';
 import '../styles/form.scss';
+import { isNonEmptyString, isNotNil } from 'ramda-adjunct';
 
 function UserForm({ sendformToParent }) {
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState(false);
   const [formData, setFormData] = useState(DefaultFormDataInt);
 
-  function validate() {
+  const validate = () => {
     switch (step) {
       case 0:
         if (
-          formData.gender !== '' &&
-          formData.goal !== '' &&
-          formData.weight !== 0
+          isNonEmptyString(formData.gender) &&
+          isNonEmptyString(formData.goal) &&
+          isNotNil(formData.weight)
         ) {
           return true;
         }
@@ -27,7 +28,10 @@ function UserForm({ sendformToParent }) {
       case 1:
         return true;
       case 2:
-        if (formData.sportFrequency !== '' && formData.jobActivity !== '') {
+        if (
+          isNonEmptyString(formData.sportFrequency) &&
+          isNonEmptyString(formData.jobActivity)
+        ) {
           return true;
         }
         return false;
@@ -36,7 +40,7 @@ function UserForm({ sendformToParent }) {
       default:
         return true;
     }
-  }
+  };
 
   const view = () => {
     switch (step) {
@@ -81,7 +85,7 @@ function UserForm({ sendformToParent }) {
     }
   };
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     if (validate()) {
       setErrors(false);
       setStep(step + 1);
@@ -91,12 +95,12 @@ function UserForm({ sendformToParent }) {
     if (step === 3) {
       sendformToParent(formData);
     }
-  }
+  };
 
-  function handleBack() {
+  const handleBack = () => {
     setStep(step - 1);
     setErrors(false);
-  }
+  };
 
   return (
     <div className="formContainer">

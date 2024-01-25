@@ -1,11 +1,14 @@
+h1 {
+  margin-bottom: 30px;
+}
 .cardsContainer {
   transition: all 1s ease-in-out;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: var(--margin-md);
   .card {
     padding: var(--margin-sm);
-    margin: var(--margin-sm);
+    // margin: var(--margin-sm);
     box-sizing: border-box;
     width: 250px;
     height: 350px;

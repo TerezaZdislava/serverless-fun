@@ -1,37 +1,32 @@
 [
   {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
+    "q": "Can I use the menu if I have food restrictions?",
+    "a": "The menu can be used by people with a gluten-free or lactose-free diet, vegetarians and vegans. The menu will only contain foods according to your diet.",
     "id": 1
   },
   {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
+    "q": "Can children eat according to the menu?",
+    "a": "The menu is not intended for children under 18 years of age.",
     "id": 2
   },
   {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
+    "q": "Is the diet suitable for me if I want to lose weight?",
+    "a": "Yes, the menu is also suitable for weight reduction. You will be in a slight caloric deficit so that the weight loss is sustainable and you do not feel hungry.",
     "id": 3
   },
   {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
+    "q": "Is the diet suitable for me if I want to gain weight?",
+    "a": "Yes, the menu is also suitable for users who aim to gain weight. We will recommend nutritionally valuable foods that support the growth of muscle mass.",
     "id": 4
   },
   {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
+    "q": "Can pregnant women use the menu?",
+    "a": "Yes, if your doctor hasn't advised you a diet. We recommend that you choose to maintain your weight or gain weight as a goal and take care of sufficient food intake.",
     "id": 5
   },
   {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
+    "q": "How does the menu calculate my recommended daily calorie intake?",
+    "a": "We use the Harris-Benedict equation to determine basal metabolism. Not only the user's age, height and weight are taken into account, but also their activity, type of job and goals.",
     "id": 6
-  },
-  {
-    "q": "Who is the online menu suitable for?",
-    "a": "for everyone who wants to start a healthy lifestyle",
-    "id": 7
   }
 ]

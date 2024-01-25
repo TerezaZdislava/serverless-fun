@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
+import Article1 from './pages/Article1';
 import CountCalories from './functions/countCalories';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserForm from './pages/UserForm';
@@ -57,6 +58,7 @@ function App() {
           />
         }
       />
+      <Route path="/articles/:articleId" element={<Article1 />} />
     </Routes>
   );
 }

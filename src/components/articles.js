@@ -1,4 +1,3 @@
-import { articles } from '../data/articles';
 import '../styles/components/articles.scss';
 import SvgIcon from '@mui/icons-material/MenuRounded';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -12,20 +11,38 @@ import {
   ButtonNext,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Articles() {
+  const navigate = useNavigate();
+  const [articles, setArticles] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleWindowResize = () => {
       console.log(window.innerWidth);
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener('resize', handleWindowResize);
-
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get('/.netlify/functions/getArticles')
+      .then(function (response) {
+        setArticles(response.data);
+        setIsLoading(false);
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -43,24 +60,26 @@ function Articles() {
         style={{ position: 'relative', overflow: 'visible' }}
       >
         <Slider>
-          {articles.map((article, i) => (
-            <Slide index={i} key={i}>
-              <img
-                src={article.image}
-                alt={article.h1}
-                style={{ objectFit: 'cover', width: '100%' }}
-              />
-              <h3
-                style={{
-                  position: 'absolute',
-                  bottom: '10px',
-                  left: '10px',
-                }}
-              >
-                {article.h1}
-              </h3>
-            </Slide>
-          ))}
+          {!isLoading &&
+            articles.map((article, i) => (
+              <Slide index={i} key={i}>
+                <img
+                  src={article?.image}
+                  onClick={() => navigate(`/articles/${article.articleId}`)}
+                  alt={article.title}
+                  style={{ objectFit: 'cover', width: '100%' }}
+                />
+                <h3
+                  style={{
+                    position: 'absolute',
+                    bottom: '10px',
+                    left: '10px',
+                  }}
+                >
+                  {article.title}
+                </h3>
+              </Slide>
+            ))}
         </Slider>
         <div
           style={{

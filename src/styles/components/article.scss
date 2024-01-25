@@ -1,0 +1,38 @@
+.article {
+  padding-block: 100px;
+  padding-inline: var(--margin-box);
+  display: flex;
+  flex-direction: column;
+  h1 {
+    margin-bottom: 50px;
+  }
+  img {
+    height: auto;
+  }
+  p {
+    margin-top: 50px;
+    line-height: 36px;
+  }
+  p::first-line {
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
+    color: var(--dark-blue);
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+@media (max-width: 500px) {
+  .article {
+    padding-block: 40px;
+    padding-inline: 20px;
+    h1 {
+      line-height: inherit;
+      font-size: 28px !important;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-top: 20px;
+      line-height: 30px;
+    }
+  }
+}

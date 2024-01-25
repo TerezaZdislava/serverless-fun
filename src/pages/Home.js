@@ -1,8 +1,10 @@
 import Articles from '../components/articles';
 import Faq from '../components/faq';
+import Contact from '../components/contact';
 import { imagesArray } from '../data/images';
 import '../styles/home.scss';
 import { useNavigate } from 'react-router-dom';
+import Instagram from '../components/instagram';
 
 function Home() {
   const navigate = useNavigate();
@@ -101,6 +103,8 @@ function Home() {
       </section>
       <Faq />
       <Articles />
+      <Contact />
+      <Instagram />
     </div>
   );
 }

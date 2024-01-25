@@ -58,9 +58,10 @@ hr {
         width: 100%;
         border-radius: 25px;
         border: 2px solid rgba(255, 255, 255, 0.3);
-        background-color: var(--dark-blue);
+        background-color: transparent;
         padding-left: 20px;
         box-sizing: border-box;
+        color: white;
       }
       button {
         height: 50px;
@@ -72,6 +73,10 @@ hr {
         font-size: 18px;
         border-radius: 25px;
         font-weight: bold;
+        border: none;
+      }
+      button:hover {
+        background-color: var(--light-grey);
       }
     }
   }

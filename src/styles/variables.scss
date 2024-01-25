@@ -1,6 +1,6 @@
 :root {
   --white: #ffffff;
-  --light-grey: #f5f7fa;
+  --light-grey: #e8e8e8;
   --grey: #aaaaaa;
   --dark-grey: #4d4d4f;
   --black: #1a1a1a;
@@ -67,6 +67,9 @@ span {
 }
 .color--grey {
   color: var(--grey);
+}
+.color--light-grey {
+  color: var(--light-grey);
 }
 .color--white {
   color: var(--white);
