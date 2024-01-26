@@ -29,7 +29,7 @@ function Home() {
               className="button-primary"
               onClick={() => navigate('/form')}
             >
-              Get healthy menu for free
+              Start quiz
             </button>
           </div>
           <div className="images">
@@ -90,14 +90,18 @@ function Home() {
         </div>
         <div className="text-container">
           <div className="text">
-            <h1>Experience, reliability, speed</h1>
+            <h1>Sustainable healthy lifestyle </h1>
             <p>
-              We have been in the field of nutrition for more than 8 years,
-              which is why we are able to identify the needs of our clients very
-              quickly. That's also why I've already sent out millions of menus
-              and worked with thousands of clients in my not-so-long existence.
+              For more than 8 years we help our clients find their way towards a
+              sustainable healthy lifestyle, achieve their weight goals and
+              what's more, get a better health.
             </p>
-            <button className="button-primary">More about us</button>
+            <button
+              className="button-primary"
+              onClick={() => navigate('/form')}
+            >
+              Get healthy menu for free
+            </button>
           </div>
         </div>
       </section>

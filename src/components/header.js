@@ -56,10 +56,10 @@ function Header() {
           </span>
         </div>
         <div className="right-half">
-          <div className="account">
+          {/* <div className="account">
             <button className="signin">Log in</button>
             <button className="login button-primary">Sign up</button>
-          </div>
+          </div> */}
         </div>
         {menuButton}
       </div>
@@ -90,7 +90,7 @@ function Header() {
               </span>
             </div>
             <hr />
-            <div className="account">
+            {/* <div className="account">
               <button className="signin" onClick={() => navigate('/login')}>
                 Přihlásit
               </button>
@@ -100,7 +100,7 @@ function Header() {
               >
                 Vytvořit účet
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

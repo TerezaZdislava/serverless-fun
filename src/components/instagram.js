@@ -35,7 +35,7 @@ function Instagram() {
         style={{
           border: 'none',
           overflow: 'hidden',
-          height: windowWidth > 600 ? '410px' : '300px',
+          height: windowWidth > 600 ? '410px' : '200px',
           width: '620px',
           maxWidth: '100%',
           maxHeight: '100%',

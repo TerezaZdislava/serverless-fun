@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/components/article.scss';
+import { useNavigate } from 'react-router-dom';
 
 function Article1() {
   const articleId = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(articleId);
@@ -31,6 +33,9 @@ function Article1() {
           <h1>{data.title}</h1>
           <img src={data?.image} alt={data.articleId} />
           <p>{data.text}</p>
+          <button className="button-secondary" onClick={() => navigate('/')}>
+            Go to homepage
+          </button>
         </>
       )}
     </section>
