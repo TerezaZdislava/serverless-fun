@@ -1,9 +1,9 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
-import Article1 from './pages/Article1';
+import Article from './pages/Article';
 import CountCalories from './functions/countCalories';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserForm from './pages/UserForm';
@@ -17,10 +17,15 @@ function App() {
   const navigate = useNavigate();
   const { i18n } = useTranslation();
 
+  useEffect(() => {
+    navigate('/');
+  }, [i18n.resolvedLanguage]);
+
   const fetchData = async (formData) => {
     const result = await axios.post('/.netlify/functions/getMeals', {
       diet: formData.diet,
       meals: formData.numberOfMeals,
+      lang: i18n.resolvedLanguage,
     });
     setMeals(result.data);
     navigate('/menu');
@@ -61,10 +66,7 @@ function App() {
           />
         }
       />
-      <Route
-        path={'/articles/:articleId/:' + i18n.resolvedLanguage}
-        element={<Article1 />}
-      />
+      <Route path={'/articles/:articleId/:lang'} element={<Article />} />
     </Routes>
   );
 }

@@ -6,12 +6,14 @@ const clientPromise = mongoClient.connect();
 const handler = async (event) => {
   const params = JSON.parse(event.body);
   const articleId = params.articleId.toString();
+  const lang = params.lang.toString();
 
+  console.log(lang);
   try {
     const database = await (
       await clientPromise
     ).db(process.env.DATABASE_ARTICLES);
-    const collection = database.collection('articles-content');
+    const collection = database.collection(`articles-content-${lang}`);
 
     const article = await collection.findOne({ articleId: articleId });
 

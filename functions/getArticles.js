@@ -3,12 +3,14 @@ require('dotenv').config();
 const mongoClient = new MongoClient(process.env.ATLAS_URI);
 const clientPromise = mongoClient.connect();
 
-const handler = async () => {
+const handler = async (event) => {
+  const lang = event.body.toString();
+
   try {
     const database = await (
       await clientPromise
     ).db(process.env.DATABASE_ARTICLES);
-    const collection = database.collection('articles');
+    const collection = database.collection(`articles-${lang}`);
     const articles = await collection.aggregate().toArray();
     return {
       statusCode: 200,

@@ -1,20 +1,16 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import i18next from 'i18next';
 
-i18n
-  // detect user language
-  // learn more: https://github.com/i18next/i18next-browser-languageDetector
+i18next
   .use(LanguageDetector)
-  // pass the i18n instance to react-i18next.
   .use(initReactI18next)
-  // init i18next
-  // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     debug: true,
     fallbackLng: 'en',
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+      escapeValue: false,
     },
     resources: {
       en: {
@@ -67,6 +63,7 @@ i18n
             },
             articles: {
               headline: 'New articles',
+              button: 'Homepage',
             },
             contact: {
               headline: `Let us know what's on your mind`,
@@ -167,7 +164,7 @@ i18n
               vegan: 'Vegan',
               vegetarian: 'Vegetarian',
               lactoseFree: 'Lactose free',
-              gluteFree: 'Gluten free',
+              glutenFree: 'Gluten free',
             },
             goal: 'Goal',
             calories: 'Calories',
@@ -238,6 +235,7 @@ i18n
             },
             articles: {
               headline: 'Nové články',
+              button: 'Domů',
             },
             contact: {
               headline: `Dejte nám vědět, co máte na srdci`,
@@ -338,7 +336,7 @@ i18n
               vegan: 'Vegan',
               vegetarian: 'Vegetarián',
               lactoseFree: 'Bez laktózy',
-              gluteFree: 'Bez lepku',
+              glutenFree: 'Bez lepku',
             },
             goal: 'Cíl',
             calories: 'Kalorie',

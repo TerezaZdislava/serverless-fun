@@ -7,12 +7,12 @@ const handler = async (event) => {
   const params = JSON.parse(event.body);
   const numberOfMeals = params.meals;
   const diet = params.diet;
-  // console.log(numberOfMeals, diet);
+  const lang = params.lang;
+
   let menu = {};
-  // console.log(1);
   try {
     const database = await (await clientPromise).db(process.env.DATABASE);
-    const collection = database.collection('meals');
+    const collection = database.collection(`meals-${lang}`);
     // console.log(2);
 
     const breakfast = await collection

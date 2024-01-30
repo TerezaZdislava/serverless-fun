@@ -5,17 +5,18 @@ import '../styles/components/article.scss';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-function Article1() {
-  const articleId = useParams();
+function Article() {
+  const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  console.log(params);
   useEffect(() => {
-    console.log(articleId);
+    console.log(params);
     axios
-      .post('/.netlify/functions/getArticlesContent', articleId)
+      .post('/.netlify/functions/getArticlesContent', params)
       .then(function (response) {
         setData(response.data);
         setIsLoading(false);
@@ -25,21 +26,17 @@ function Article1() {
         // handle error
         console.log(error);
       });
-  }, [articleId]);
+  }, [params]);
 
-  console.log(articleId);
   return (
     <section className="article">
       {!isLoading && (
         <>
-          <h1>
-            {' '}
-            {t('description.part2')} {data.title}
-          </h1>
+          <h1>{data.title}</h1>
           <img src={data?.image} alt={data.articleId} />
           <p>{data.text}</p>
           <button className="button-secondary" onClick={() => navigate('/')}>
-            Go to homepage
+            {t('home.articles.button')}{' '}
           </button>
         </>
       )}
@@ -47,4 +44,4 @@ function Article1() {
   );
 }
 
-export default Article1;
+export default Article;

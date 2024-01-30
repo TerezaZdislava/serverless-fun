@@ -21,10 +21,11 @@ function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const { t, i18n } = useTranslation();
 
+  const lang = i18n.resolvedLanguage;
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleWindowResize = () => {
-      console.log(window.innerWidth);
       setWindowWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleWindowResize);
@@ -35,17 +36,15 @@ function Articles() {
 
   useEffect(() => {
     axios
-      .get('/.netlify/functions/getArticles')
+      .post('/.netlify/functions/getArticles', lang)
       .then(function (response) {
         setArticles(response.data);
         setIsLoading(false);
-        console.log(response);
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
       });
-  }, []);
+  }, [lang]);
 
   return (
     <section className="news" id="news">
