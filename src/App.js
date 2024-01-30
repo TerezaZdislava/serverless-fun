@@ -7,12 +7,15 @@ import Article1 from './pages/Article1';
 import CountCalories from './functions/countCalories';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserForm from './pages/UserForm';
+import './i18n';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [meals, setMeals] = useState();
   const [calories, setCalories] = useState();
   const [formData, setFormData] = useState();
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
 
   const fetchData = async (formData) => {
     const result = await axios.post('/.netlify/functions/getMeals', {
@@ -58,7 +61,10 @@ function App() {
           />
         }
       />
-      <Route path="/articles/:articleId" element={<Article1 />} />
+      <Route
+        path={'/articles/:articleId/:' + i18n.resolvedLanguage}
+        element={<Article1 />}
+      />
     </Routes>
   );
 }

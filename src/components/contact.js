@@ -1,9 +1,13 @@
 import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import '../styles/components/contactForm.scss';
+import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
-  const [submitButtonText, setSubmitButtonText] = useState('Send');
+  const { t } = useTranslation();
+  const [submitButtonText, setSubmitButtonText] = useState(
+    t('home.contact.button'),
+  );
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const sendEmail = (e) => {
@@ -19,7 +23,7 @@ export default function Contact() {
       .then(
         (result) => {
           console.log(result.text);
-          setSubmitButtonText('Your message was sent');
+          setSubmitButtonText(t('home.contact.buttonSend'));
           setSubmitButtonDisabled(true);
         },
         (error) => {
@@ -31,17 +35,17 @@ export default function Contact() {
   };
   return (
     <section className="contact-form">
-      <h1>Let us know what's on your mind</h1>
+      <h1>{t('home.contact.headline')}</h1>
       <form onSubmit={sendEmail}>
         <div className="content">
           <div>
-            <label>Full name</label>
+            <label>{t('home.contact.name')}</label>
             <input required type="text" name="user_name" />
-            <label>Email</label>
+            <label>{t('home.contact.email')}</label>
             <input required type="email" name="user_email" />
           </div>
           <div className="message">
-            <label>Message</label>
+            <label>{t('home.contact.message')}</label>
             <textarea required name="message" />
           </div>
         </div>

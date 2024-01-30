@@ -1,13 +1,14 @@
 const DefaultFormDataInt = {
   gender: '',
-  weight: 70,
+  weight: null,
+  age: null,
   goal: '',
   snack: false,
-  sportFrequency: '',
-  jobActivity: '',
-  bodyFat: 3,
+  sport: '',
+  job: '',
+  fat: 3,
   diet: null,
-  numberOfMeals: 3,
+  numberOfMeals: null,
 };
 
 export default DefaultFormDataInt;

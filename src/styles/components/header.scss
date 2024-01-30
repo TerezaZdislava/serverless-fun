@@ -21,6 +21,25 @@ $blue: #00467f;
     background-color: transparent;
     color: var(--green);
   }
+  .lang,
+  .lang_selected {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    margin-left: 10px;
+    img {
+      height: 16px;
+      margin-left: 5px;
+    }
+  }
+  .lang_selected {
+    color: var(--green);
+  }
+  .lang:hover {
+    color: var(--green);
+  }
 }
 .links {
   scroll-behavior: smooth;

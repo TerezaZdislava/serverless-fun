@@ -4,8 +4,10 @@ import Meal from '../components/meal';
 import { useNavigate } from 'react-router-dom';
 import { Box, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Menu({ menu, goal, calories, diet }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [tabIndex, setTabIndex] = useState(0);
   const [result, setResult] = useState([]);
@@ -14,18 +16,29 @@ function Menu({ menu, goal, calories, diet }) {
     setTabIndex(newTabIndex);
   };
 
+  function modifyGoalNames(goal) {
+    switch (goal) {
+      case 'reduce':
+        return t('menu.reduce');
+      case 'gain':
+        return t('menu.gain');
+      default:
+        return t('menu.hold');
+    }
+  }
+
   function modifyDietNames(diet) {
     switch (diet) {
       case 'vegan':
-        return 'Vegan';
+        return t('menu.diets.vegan');
       case 'vegetarian':
-        return 'Vegetarian';
+        return t('menu.diets.vegetarian');
       case 'lactoseFree':
-        return 'Lactose free';
+        return t('menu.diets.lactoseFree');
       case 'glutenFree':
-        return 'Gluten free';
+        return t('menu.diets.glutenFree');
       default:
-        return '';
+        return t('menu.noDiets');
     }
   }
 
@@ -80,12 +93,12 @@ function Menu({ menu, goal, calories, diet }) {
     <div className="menuComponent">
       {menu ? (
         <div className="menuContainer">
-          <span>Your healthy</span>
-          <h1>Daily menu</h1>
+          <span>{t('menu.headlineTop')}</span>
+          <h1>{t('menu.headlineBig')}</h1>
           <Card
-            goal={goal}
+            goal={modifyGoalNames(goal)}
             calories={calories}
-            diet={diet ? modifyDietNames(diet) : 'No dietary restrictions'}
+            diet={modifyDietNames(diet)}
           />
           <Box>
             <Tabs
@@ -109,29 +122,29 @@ function Menu({ menu, goal, calories, diet }) {
                 '& .Mui-selected': { color: '#14274d' },
               }}
             >
-              <Tab label="Menu" />
-              <Tab label="Shopping list" onClick={() => getids()} />
+              <Tab label={t('menu.menu')} />
+              <Tab label={t('menu.shoppingList')} onClick={() => getids()} />
             </Tabs>
           </Box>
           {tabIndex === 0 && (
             <>
-              <span>Breakfast</span>
+              <span>{t('menu.meals.breakfast')}</span>
               {<Meal meal={menu.breakfast} />}
               {menu.snack ? (
                 <>
-                  <span>Snack</span>
+                  <span>{t('menu.meals.snack')}</span>
                   {<Meal meal={menu.snack} />}
                 </>
               ) : null}
-              <span>Lunch</span>
+              <span>{t('menu.meals.lunch')}</span>
               {<Meal meal={menu.lunch} />}
               {menu.snack2 ? (
                 <>
-                  <span>Snack</span>
+                  <span>{t('menu.meals.snack')}</span>
                   {<Meal meal={menu.snack2} />}
                 </>
               ) : null}
-              <span>Dinner</span>
+              <span>{t('menu.meals.dinner')}</span>
               {<Meal meal={menu.dinner} />}
             </>
           )}
@@ -154,17 +167,17 @@ function Menu({ menu, goal, calories, diet }) {
         </div>
       ) : (
         <div className="noData">
-          <h1>Looking for a healthy menu?</h1>
-          <h4>Fill a short form and get your menu in few minutes!</h4>
+          <h1>{t('menu.noData.headline')}</h1>
+          <h4>{t('menu.noData.text')}</h4>
           <div className="buttons">
             <button className="button-secondary" onClick={() => navigate('/')}>
-              Homepage
+              {t('menu.noData.buttonHome')}
             </button>
             <button
               className="button-primary"
               onClick={() => navigate('/form')}
             >
-              Get menu
+              {t('menu.noData.buttonForm')}
             </button>
           </div>
         </div>

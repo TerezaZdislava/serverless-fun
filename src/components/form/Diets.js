@@ -1,8 +1,10 @@
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import { useTranslation } from 'react-i18next';
 
-function Diet({ formData, setFormData, formquestions }) {
+function Diet({ formData, setFormData }) {
+  const { t } = useTranslation();
   const numberOfMealsChange = (event) => {
     setFormData({
       ...formData,
@@ -20,7 +22,7 @@ function Diet({ formData, setFormData, formquestions }) {
   return (
     <form className="formPart">
       <section className="question">
-        <h4>{formquestions[0].q}</h4>
+        <h4>{t('form.questions.food.diet.q')}</h4>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
@@ -29,29 +31,29 @@ function Diet({ formData, setFormData, formquestions }) {
           onChange={dietChange}
         >
           <FormControlLabel
-            value={'vegan'}
+            value="vegan"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[0]}
+            label={t('form.questions.food.diet.a1')}
           />
           <FormControlLabel
-            value={'vegetarian'}
+            value="vegetarian"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[1]}
+            label={t('form.questions.food.diet.a2')}
           />
           <FormControlLabel
-            value={'lactoseFree'}
+            value="lactoseFree"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[2]}
+            label={t('form.questions.food.diet.a3')}
           />
           <FormControlLabel
-            value={'glutenFree'}
+            value="glutenFree"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[3]}
+            label={t('form.questions.food.diet.a4')}
           />
         </RadioGroup>
       </section>
       <section className="question">
-        <h4>{formquestions[1].q}</h4>
+        <h4>{t('form.questions.food.meals.q')}</h4>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
@@ -60,14 +62,14 @@ function Diet({ formData, setFormData, formquestions }) {
           onChange={numberOfMealsChange}
         >
           <FormControlLabel
-            value={3}
+            value="3"
             control={<Radio color="secondary" />}
-            label={formquestions[1].a[0]}
+            label={t('form.questions.food.meals.a1')}
           />
           <FormControlLabel
-            value={5}
+            value="5"
             control={<Radio color="secondary" />}
-            label={formquestions[1].a[1]}
+            label={t('form.questions.food.meals.a2')}
           />
         </RadioGroup>
       </section>

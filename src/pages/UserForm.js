@@ -4,12 +4,13 @@ import BodyFat from '../components/form/BodyFat';
 import Diets from '../components/form/Diets';
 import Personal from '../components/form/Personal';
 import StepperWrapper from '../components/form/StepperWrapper';
-import formquestions from '../data/form.json';
 import DefaultFormDataInt from '../interface/formData';
 import '../styles/form.scss';
 import { isNonEmptyString, isNotNil } from 'ramda-adjunct';
+import { useTranslation } from 'react-i18next';
 
 function UserForm({ sendformToParent }) {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState(false);
   const [formData, setFormData] = useState(DefaultFormDataInt);
@@ -29,8 +30,8 @@ function UserForm({ sendformToParent }) {
         return true;
       case 2:
         if (
-          isNonEmptyString(formData.sportFrequency) &&
-          isNonEmptyString(formData.jobActivity)
+          isNonEmptyString(formData.sport) &&
+          isNonEmptyString(formData.job)
         ) {
           return true;
         }
@@ -50,38 +51,20 @@ function UserForm({ sendformToParent }) {
             errors={errors}
             formData={formData}
             setFormData={setFormData}
-            formquestions={[
-              formquestions[0],
-              formquestions[1],
-              formquestions[2],
-            ]}
           />
         );
       case 1:
-        return (
-          <Diets
-            formData={formData}
-            setFormData={setFormData}
-            formquestions={[formquestions[3], formquestions[4]]}
-          />
-        );
+        return <Diets formData={formData} setFormData={setFormData} />;
       case 2:
         return (
           <Activity
             errors={errors}
             formData={formData}
             setFormData={setFormData}
-            formquestions={[formquestions[5], formquestions[6]]}
           />
         );
       default:
-        return (
-          <BodyFat
-            formData={formData}
-            setFormData={setFormData}
-            formquestions={formquestions[7]}
-          />
-        );
+        return <BodyFat formData={formData} setFormData={setFormData} />;
     }
   };
 
@@ -109,11 +92,11 @@ function UserForm({ sendformToParent }) {
       <div className="buttons">
         {step > 0 && (
           <button className="button-secondary back" onClick={handleBack}>
-            Back
+            {t('form.back')}
           </button>
         )}
         <button className="button-primary" onClick={handleSubmit}>
-          {step < 3 ? 'Next' : 'Submit'}
+          {step < 3 ? t('form.next') : t('form.submit')}
         </button>
       </div>
     </div>

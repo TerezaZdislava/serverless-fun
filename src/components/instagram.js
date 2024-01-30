@@ -2,8 +2,10 @@ import '../styles/components/instagram.scss';
 import SvgIcon from '@mui/icons-material/MenuRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Instagram() {
+  const { t } = useTranslation();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleWindowResize = () => {
@@ -20,7 +22,7 @@ function Instagram() {
     <section class="instagram">
       <a href="https://www.instagram.com/gethealthymenu/" target="blanc">
         <h2>
-          Follow us on Instagram
+          {t('home.contact.instagram')}
           <SvgIcon component={InstagramIcon} />
         </h2>
       </a>

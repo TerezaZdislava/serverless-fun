@@ -5,9 +5,11 @@ import { imagesArray } from '../data/images';
 import '../styles/home.scss';
 import { useNavigate } from 'react-router-dom';
 import Instagram from '../components/instagram';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="home">
@@ -15,21 +17,16 @@ function Home() {
         <div className="background"></div>
         <div className="content">
           <div className="text">
-            <h1>Healthy menu</h1>
-            <h1>tailored to you needs</h1>
-            <h2>Free, online and in 5 minutes</h2>
-            <span>
-              Get your healthy menu online, easily and within 5 minutes. The
-              menu will be tailored exactly for you. Just fill out a short
-              questionnaire where we will ask about your activity, figure type,
-              goals or food preferences.
-            </span>
-            <span>Try our app and get your healthy menu for free.</span>
+            <h1>{t('home.about.title.h1.firstPart')}</h1>
+            <h1>{t('home.about.title.h1.secondPart')}</h1>
+            <h2>{t('home.about.title.h2')}</h2>
+            <span>{t('home.about.text.description')}</span>
+            <span>{t('home.about.text.callToAction')}</span>
             <button
               className="button-primary"
               onClick={() => navigate('/form')}
             >
-              Start quiz
+              {t('home.about.button')}
             </button>
           </div>
           <div className="images">
@@ -77,30 +74,26 @@ function Home() {
           />
           <div className="square1 square">
             <h1>3 mil.</h1>
-            <span>daily menus sent</span>
+            <span>{t('home.benefits.sent')}</span>
           </div>
           <div className="square2 square">
             <h1>1 000+</h1>
-            <span>happy clients</span>
+            <span>{t('home.benefits.clients')}</span>
           </div>
           <div className="square3 square">
-            <h1>8 years</h1>
-            <span>experience in nutrition</span>
+            <h1>{t('home.benefits.yearsBig')}</h1>
+            <span>{t('home.benefits.years')}</span>
           </div>
         </div>
         <div className="text-container">
           <div className="text">
-            <h1>Sustainable healthy lifestyle </h1>
-            <p>
-              For more than 8 years we help our clients find their way towards a
-              sustainable healthy lifestyle, achieve their weight goals and
-              what's more, get a better health.
-            </p>
+            <h1>{t('home.benefits.headline')}</h1>
+            <p>{t('home.benefits.description')}</p>
             <button
               className="button-primary"
               onClick={() => navigate('/form')}
             >
-              Get healthy menu for free
+              {t('home.benefits.button')}
             </button>
           </div>
         </div>

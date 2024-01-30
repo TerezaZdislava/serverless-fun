@@ -3,26 +3,25 @@ import ElectricBoltRoundedIcon from '@mui/icons-material/ElectricBoltRounded';
 import RestaurantRoundedIcon from '@mui/icons-material/RestaurantRounded';
 import '../styles/components/card.scss';
 import { SvgIcon } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 function Card({ goal, calories, diet }) {
+  const { t } = useTranslation();
   const data = [
     {
       icon: FlagRoundedIcon,
-      name: 'Goal',
+      name: t('menu.goal'),
       selected: goal,
-      text: 'lorem ipsum lorem ipsum lorem ipsum ',
     },
     {
       icon: ElectricBoltRoundedIcon,
-      name: 'Calories',
+      name: t('menu.calories'),
       selected: calories,
-      text: 'lorem ipsum lorem ipsum lorem ipsum ',
     },
     {
       icon: RestaurantRoundedIcon,
-      name: 'Diet',
+      name: t('menu.diet'),
       selected: diet,
-      text: 'lorem ipsum lorem ipsum lorem ipsum ',
     },
   ];
   return (
@@ -32,12 +31,10 @@ function Card({ goal, calories, diet }) {
           <div className="card" key={i}>
             <div className="icon-background">
               <SvgIcon component={card.icon} />
-              {/* <img className="img1" /> */}
             </div>
             <div className="text">
               <span className="top-headline">{card.name}</span>
               <h2>{card.selected}</h2>
-              <span>{card.text}</span>
             </div>
           </div>
         );

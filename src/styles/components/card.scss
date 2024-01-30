@@ -6,20 +6,17 @@ h1 {
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--margin-md);
+  margin-top: var(--margin-sm);
   .card {
     padding: var(--margin-sm);
     // margin: var(--margin-sm);
     box-sizing: border-box;
     width: 250px;
-    height: 350px;
-    background-color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 9px;
-    .text {
-      height: 200px;
-    }
+
     Icon {
       position: absolute;
       top: 10px;

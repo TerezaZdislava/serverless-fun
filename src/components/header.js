@@ -5,10 +5,18 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import SvgIcon from '@mui/icons-material/MenuRounded';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import cz from '../assets/cz.png';
+import en from '../assets/en.png';
 
 function Header() {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   let [mobileMenu, setMobileMenu] = useState(false);
+  const lngs = {
+    cz: { nativeName: 'CZ', icon: cz },
+    en: { nativeName: 'EN', icon: en },
+  };
 
   let menuButton;
   if (mobileMenu) {
@@ -39,23 +47,36 @@ function Header() {
         </button>
         <div className="links">
           <span>
-            <a href="#faq">FAQ</a>
+            <a href="#faq">{t('header.faq')}</a>
             <span className="underline"></span>
           </span>
           <span>
-            <a href="#news">News</a>
+            <a href="#news">{t('header.new')}</a>
             <span className="underline"></span>
           </span>
           <span>
-            <a href="#news">Blog</a>
+            <a href="#news">{t('header.blog')}</a>
             <span className="underline"></span>
           </span>
           <span>
-            <a href="#contact">Contact</a>
+            <a href="#contact">{t('header.contact')}</a>
             <span className="underline"></span>
           </span>
         </div>
         <div className="right-half">
+          {Object.keys(lngs).map((lng) => (
+            <button
+              key={lng}
+              className={
+                i18n.resolvedLanguage === lng ? 'lang_selected' : 'lang'
+              }
+              type="submit"
+              onClick={() => i18n.changeLanguage(lng)}
+            >
+              {lngs[lng].nativeName}
+              <img src={lngs[lng].icon} alt="bbb" />
+            </button>
+          ))}
           {/* <div className="account">
             <button className="signin">Log in</button>
             <button className="login button-primary">Sign up</button>
@@ -74,19 +95,16 @@ function Header() {
           <div className="content">
             <div className="links">
               <span>
-                <a href="#services">Služby</a>
+                <a href="#faq">{t('header.faq')}</a>
               </span>
               <span>
-                <a href="#video">Jak to funguje</a>
+                <a href="#news">{t('header.new')}</a>
               </span>
               <span>
-                <a href="#faq">FAQ</a>
+                <a href="#news">{t('header.blog')}</a>
               </span>
               <span>
-                <a href="#news">Novinky</a>
-              </span>
-              <span>
-                <a href="#contact">Kontakt</a>
+                <a href="#contact">{t('header.contact')}</a>
               </span>
             </div>
             <hr />

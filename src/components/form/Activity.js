@@ -1,19 +1,21 @@
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useTranslation } from 'react-i18next';
 
-function Activity({ formData, setFormData, formquestions, errors }) {
+function Activity({ formData, setFormData, errors }) {
+  const { t } = useTranslation();
   const sportFrequencyChange = (event) => {
     setFormData({
       ...formData,
-      sportFrequency: event.target.value,
+      sport: event.target.value,
     });
   };
 
   const jobActivityChange = (event) => {
     setFormData({
       ...formData,
-      jobActivity: event.target.value,
+      job: event.target.value,
     });
   };
 
@@ -21,60 +23,60 @@ function Activity({ formData, setFormData, formquestions, errors }) {
     <form className="formPart">
       <section className="question">
         {errors && <span className="error">Required *</span>}
-        <h4>{formquestions[0].q}</h4>
+        <h4>{t('form.questions.activity.sport.q')}</h4>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
-          defaultValue={formData.sportFrequency}
-          value={formData.sportFrequency}
+          defaultValue={formData.sport}
+          value={formData.sport}
           onChange={sportFrequencyChange}
         >
           <FormControlLabel
-            value={formquestions[0].a[0]}
+            value="0"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[0]}
+            label={t('form.questions.activity.sport.a1')}
           />
           <FormControlLabel
-            value={formquestions[0].a[1]}
+            value="1"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[1]}
+            label={t('form.questions.activity.sport.a2')}
           />
           <FormControlLabel
-            value={formquestions[0].a[2]}
+            value="2"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[2]}
+            label={t('form.questions.activity.sport.a3')}
           />
           <FormControlLabel
-            value={formquestions[0].a[3]}
+            value="3"
             control={<Radio color="secondary" />}
-            label={formquestions[0].a[3]}
+            label={t('form.questions.activity.sport.a4')}
           />
         </RadioGroup>
       </section>
       <section className="question">
         {errors && <span className="error">Required *</span>}
-        <h4>{formquestions[1].q}</h4>
+        <h4>{t('form.questions.activity.job.q')}</h4>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
-          defaultValue={formData.jobActivity}
-          value={formData.jobActivity}
+          defaultValue={formData.job}
+          value={formData.job}
           onChange={jobActivityChange}
         >
           <FormControlLabel
-            value={formquestions[1].a[0]}
+            value="0"
             control={<Radio color="secondary" />}
-            label={formquestions[1].a[0]}
+            label={t('form.questions.activity.job.a1')}
           />
           <FormControlLabel
-            value={formquestions[1].a[1]}
+            value="1"
             control={<Radio color="secondary" />}
-            label={formquestions[1].a[1]}
+            label={t('form.questions.activity.job.a2')}
           />
           <FormControlLabel
-            value={formquestions[1].a[2]}
+            value="2"
             control={<Radio color="secondary" />}
-            label={formquestions[1].a[2]}
+            label={t('form.questions.activity.job.a3')}
           />
         </RadioGroup>
       </section>

@@ -1,7 +1,8 @@
 import '../styles/components/footer.scss';
-// import logo from '../assets/logo.svg';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+  const { t } = useTranslation();
   return (
     <footer id="contact">
       <hr />
@@ -13,7 +14,7 @@ function Footer() {
         </div>
         <div className="contact">
           <div>
-            <h2>Contact</h2>
+            <h2>{t('footer.contact')}</h2>
             <span>
               <a href="mailto: hello@healthymenu.com" target="_blanc">
                 tereza@healthymenu.com
@@ -33,11 +34,7 @@ function Footer() {
         </div>
         <div className="footer-news">
           <h2>Newsletter</h2>
-          <span>
-            Are you interested in news from the world of healthy eating, or just
-            want to know about new features in our application? Enter your email
-            and you won't miss a thing.
-          </span>
+          <span>{t('footer.newsletterDescription')}</span>
           <div className="subscribe">
             <input
               placeholder="email@example.com"
@@ -45,19 +42,19 @@ function Footer() {
               pattern=".+@example\.com"
               size="64"
             />
-            <button>Send</button>
+            <button>{t('footer.button')}</button>
           </div>
         </div>
         <div className="info">
-          <h2>Useful information</h2>
+          <h2>{t('footer.info')}</h2>
           <span>
-            <a href="/">Documents to download</a>
+            <a href="/">{t('footer.docs')}</a>
           </span>
           <span>
-            <a href="/">Terms and Conditions</a>
+            <a href="/">{t('footer.conditions')}</a>
           </span>
           <span>
-            <a href="/">Protection of personal data</a>
+            <a href="/">{t('footer.personalData')}</a>
           </span>
         </div>
       </div>

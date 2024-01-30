@@ -5,31 +5,33 @@ import {
   maleFatImages,
   otherFatImages,
 } from '../../data/fatImages';
+import { useTranslation } from 'react-i18next';
 
-function BodyFat({ formData, setFormData, formquestions }) {
-  function handleChange(event, newValue) {
-    // console.log(newValue);
+function BodyFat({ formData, setFormData }) {
+  const { t } = useTranslation();
+  function handleChange(e, newValue) {
+    console.log(newValue);
     setFormData({
       ...formData,
-      bodyFat: newValue,
+      fat: newValue,
     });
   }
 
   function imgSrc() {
-    if (formData.gender === 'Male') {
-      return maleFatImages[formData.bodyFat - 1];
+    if (formData.gender === 'male') {
+      return maleFatImages[formData.fat - 1];
     }
-    if (formData.gender === 'Female') {
-      return femFatImages[formData.bodyFat - 1];
+    if (formData.gender === 'female') {
+      return femFatImages[formData.fat - 1];
     } else {
-      return otherFatImages[formData.bodyFat - 1];
+      return otherFatImages[formData.fat - 1];
     }
   }
 
   return (
     <form className="formPart">
-      <h4>{formquestions.q}</h4>
-      <img src={imgSrc()} alt={`f${formData.bodyFat}`} />
+      <h4>{t('form.questions.fat.q')}</h4>
+      <img src={imgSrc()} alt={`f${formData.fat}`} />
       <Box sx={{ width: 300 }}>
         <Slider
           aria-label="Body fat"

@@ -1,13 +1,11 @@
-import formResponses from '../data/form.json';
-
 function mapFormResults(props) {
   if (props.name === 'gender') {
     switch (props.val) {
-      case formResponses[0].a[0]:
+      case 'male':
         return 1.1;
-      case formResponses[0].a[1]:
+      case 'female':
         return 0.8;
-      case formResponses[0].a[2]:
+      case 'other':
         return 1;
       default:
         return 1;
@@ -16,38 +14,38 @@ function mapFormResults(props) {
 
   if (props.name === 'goal') {
     switch (props.val) {
-      case formResponses[1].a[0]:
+      case 'reduce':
         return 0.8;
-      case formResponses[1].a[1]:
+      case 'hold':
         return 1;
-      case formResponses[1].a[2]:
+      case 'gain':
         return 1.1;
       default:
         return 1;
     }
   }
 
-  if (props.name === 'frequency') {
+  if (props.name === 'sport') {
     switch (props.val) {
-      case formResponses[5].a[0]:
+      case 0:
         return 0.9;
-      case formResponses[5].a[1]:
+      case 1:
         return 1;
-      case formResponses[5].a[2]:
+      case 2:
         return 1.1;
-      case formResponses[5].a[3]:
+      case 3:
         return 1.2;
       default:
         return 1;
     }
   }
-  if (props.name === 'activity') {
+  if (props.name === 'job') {
     switch (props.val) {
-      case formResponses[6].a[0]:
+      case 0:
         return 0.9;
-      case formResponses[6].a[1]:
+      case 1:
         return 1;
-      case formResponses[6].a[2]:
+      case 2:
         return 1.1;
       default:
         return 1;

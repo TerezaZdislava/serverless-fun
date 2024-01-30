@@ -13,11 +13,13 @@ import {
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Articles() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const { t, i18n } = useTranslation();
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -48,7 +50,7 @@ function Articles() {
   return (
     <section className="news" id="news">
       <div className="text">
-        <h1>New articles</h1>
+        <h1>{t('home.articles.headline')}</h1>
       </div>
       <CarouselProvider
         naturalSlideWidth={windowWidth > 1000 ? 600 : 250}
@@ -65,7 +67,11 @@ function Articles() {
               <Slide index={i} key={i}>
                 <img
                   src={article?.image}
-                  onClick={() => navigate(`/articles/${article.articleId}`)}
+                  onClick={() =>
+                    navigate(
+                      `/articles/${article.articleId}/${i18n.resolvedLanguage}`,
+                    )
+                  }
                   alt={article.title}
                   style={{ objectFit: 'cover', width: '100%' }}
                 />
