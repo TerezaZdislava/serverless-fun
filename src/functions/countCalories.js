@@ -12,18 +12,36 @@ function CountCalories(formdata) {
     val: formdata.job,
   });
 
-  console.log(formdata);
-  console.log(job);
-  console.log(goal);
-  console.log(gender);
-  console.log(sport);
+  // const maleCountCalories = () => {
+  //   const result =
+  //     66.5 +
+  //     13.8 * (formdata.weight - (formdata.fat / 100) * formdata.weight) +
+  //     5 * 180 -
+  //     6.8 * formdata.age * ((goal + sport + job) / 3);
+  //   console.log(result);
+  //   return result;
+  // };
 
-  const result =
-    (((formdata.weight - (formdata.fat / 100) * formdata.weight) * 21.6 + 370) *
-      ((goal + gender + sport + job) / 4)) /
-    1789;
+  // const femaleCountCalories = () => {
+  //   const result = 655 + 9.6 * formdata.weight + 1.8 * 170 - 4.7 * formdata.age;
+  //   console.log(result);
+  //   return result;
+  // };
 
-  return Math.round(1700 * result);
+  const defaultCountCalories = () => {
+    const result =
+      (((formdata.weight - (formdata.fat / 100) * formdata.weight) * 21.6 +
+        370) *
+        ((goal + sport + job + gender) / 4)) /
+      1789;
+
+    console.log(result);
+
+    return Math.round(1700 * result);
+  };
+
+  console.log(defaultCountCalories());
+  return defaultCountCalories();
 }
 
 export default CountCalories;
