@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const { isEmptyString, isNilOrEmpty } = require('ramda-adjunct');
 require('dotenv').config();
 const mongoClient = new MongoClient(process.env.ATLAS_URI);
 const clientPromise = mongoClient.connect();
@@ -18,7 +19,9 @@ const handler = async (event) => {
     const breakfast = await collection
       .aggregate([
         { $match: { type: { $in: ['breakfast'] } } },
-        { $match: { diets: { $in: [diet] } } },
+        isNilOrEmpty(diet)
+          ? { $sample: { size: 1 } }
+          : { $match: { diets: { $in: [diet] } } },
         { $sample: { size: 1 } },
       ])
       .toArray();
@@ -28,7 +31,9 @@ const handler = async (event) => {
       const snack = await collection
         .aggregate([
           { $match: { type: { $in: ['snack'] } } },
-          { $match: { diets: { $in: [diet] } } },
+          isNilOrEmpty(diet)
+            ? { $sample: { size: 1 } }
+            : { $match: { diets: { $in: [diet] } } },
           { $sample: { size: 1 } },
         ])
         .toArray();
@@ -38,7 +43,9 @@ const handler = async (event) => {
     const lunch = await collection
       .aggregate([
         { $match: { type: { $in: ['lunch'] } } },
-        { $match: { diets: { $in: [diet] } } },
+        isNilOrEmpty(diet)
+          ? { $sample: { size: 1 } }
+          : { $match: { diets: { $in: [diet] } } },
         { $sample: { size: 1 } },
       ])
       .toArray();
@@ -48,7 +55,10 @@ const handler = async (event) => {
       const snack2 = await collection
         .aggregate([
           { $match: { type: { $in: ['snack'] } } },
-          { $match: { diets: { $in: [diet] } } },
+          // { $match: { diets: { $in: [diet] } } },
+          isNilOrEmpty(diet)
+            ? { $sample: { size: 1 } }
+            : { $match: { diets: { $in: [diet] } } },
           { $sample: { size: 1 } },
         ])
         .toArray();
@@ -58,7 +68,10 @@ const handler = async (event) => {
     const dinner = await collection
       .aggregate([
         { $match: { type: { $in: ['dinner'] } } },
-        { $match: { diets: { $in: [diet] } } },
+        // { $match: { diets: { $in: [diet] } } },
+        isNilOrEmpty(diet)
+          ? { $sample: { size: 1 } }
+          : { $match: { diets: { $in: [diet] } } },
         { $sample: { size: 1 } },
       ])
       .toArray();

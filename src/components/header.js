@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cz from '../assets/cz.png';
 import en from '../assets/en.png';
+// import { useState } from 'react';
 
 function Header() {
   const { t, i18n } = useTranslation();
@@ -16,6 +17,11 @@ function Header() {
   const lngs = {
     cz: { nativeName: 'CZ', icon: cz },
     en: { nativeName: 'EN', icon: en },
+  };
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+    navigate('/');
   };
 
   let menuButton;
@@ -71,7 +77,7 @@ function Header() {
                 i18n.resolvedLanguage === lng ? 'lang_selected' : 'lang'
               }
               type="submit"
-              onClick={() => i18n.changeLanguage(lng)}
+              onClick={() => changeLanguage(lng)}
             >
               {lngs[lng].nativeName}
               <img src={lngs[lng].icon} alt="bbb" />

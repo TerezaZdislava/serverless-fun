@@ -9,10 +9,183 @@ i18next
   .init({
     debug: true,
     fallbackLng: 'cz',
+    lng: 'cz',
     interpolation: {
       escapeValue: false,
     },
     resources: {
+      cz: {
+        translation: {
+          header: {
+            faq: 'Časté otázky',
+            new: 'Novinky',
+            blog: 'Blog',
+            contact: 'Kontakt',
+          },
+          home: {
+            about: {
+              title: {
+                h1: {
+                  firstPart: 'Zdravý jídelníček',
+                  secondPart: 'na míru Vašim potřebám',
+                },
+                h2: 'Zdarma, online a do 5 minut',
+              },
+              text: {
+                description:
+                  'Za 5 minut můžete mít svůj zdravý jídelníček na míru i s recepty a nákupním seznamem. Stačí vyplnit krátký dotazník, kde se zeptáme na vaši aktivitu, cíle, typ postavy, diety a preference v jídle.',
+                callToAction:
+                  'Vyzkoušejte naši aplikaci a získejte jídelníček na míru zdarma.',
+              },
+              button: 'Chci jídelníček',
+            },
+            benefits: {
+              clients: 'spokojených klientů',
+              yearsBig: '3 roky',
+              years: 'zkušeností ve zdravé výživě',
+              sent: 'vytvořených jídelníčků',
+              headline: 'Zdravý životní styl udržitelně',
+              description:
+                'Již více než 3 roky pomáháme našim klientům najít cestu k udržitelnému zdravému životnímu stylu, dosáhnout vysněné postavy a co víc, získat pevnější zdraví',
+              button: 'Chci jídelníček zdarma',
+            },
+            faq: {
+              headline: 'Časté otázky',
+              q1: 'Mohu použít jídelníček, když mám omezení v jídle?',
+              q2: 'Chci zhubnout, je pro mě jídlěníček vhodný?',
+              q3: 'Mohou se těhotné ženy stravovat podle jídelníčku?',
+              q4: 'Mohou se děti stravovat podle jídelníčku?',
+              q5: 'Chci nabrat váhu, je pro mě jídlěníček vhodný?',
+              q6: 'Jak jídelníček vypočítá můj doporučený denní příjem kalorií?',
+              a1: 'Jídelníček mohou využít lidé s bezlepkovou nebo bezlaktózovou dietou, vegetariáni a vegani. Menu bude obsahovat pouze potraviny podle vaší diety.',
+              a2: 'Ano, jídelníček je vhodný i při redukci váhy. Budete v mírném kalorickém deficitu, aby bylo hubnutí udržitelné a neměli jste hlad.',
+              a3: `Ano, pokud vám lékař nedoporučil jinak. Doporučujeme, abyste si jako cíl zvolili udržení váhy nebo přibírání a dbali na dostatečný příjem potravy.`,
+              a4: 'Jídelníček není určen pro děti do 18 let.',
+              a5: 'Ano, menu je vhodné i pro uživatele, kteří mají za cíl přibrat. Doporučíme vám nutričně hodnotné potraviny, které podporují růst svalové hmoty.',
+              a6: `Ke stanovení bazálního metabolismu používáme Harris-Benedictovu rovnici. Zohledňuje se nejen věk, výška a váha uživatele, ale také jeho aktivita, druh zaměstnání a cíle.`,
+            },
+            articles: {
+              headline: 'Nové články',
+              button: 'Domů',
+            },
+            contact: {
+              headline: `Dejte nám vědět, co máte na srdci`,
+              name: 'Jméno a příjmení',
+              email: 'Email',
+              message: 'Zpráva',
+              button: 'Poslat',
+              buttonSend: 'Děkujeme za zprávu',
+              instagram: 'Sledujte nás na Instagramu',
+            },
+          },
+          footer: {
+            contact: 'Kontakt',
+            Newsletter: 'Newsletter',
+            newsletterDescription: `Zajímají vás novinky ze světa zdravé výživy, nebo se jen chcete dozvědět o nových funkcích v naší aplikaci? Zadejte svůj e-mail a nic vám neunikne.`,
+            button: 'Poslat',
+            info: 'Užitečné informace',
+            docs: 'Dokumenty ke stažení',
+            conditions: 'Podmínky používání',
+            personalData: 'Ochrana osobních údajů',
+          },
+          form: {
+            next: 'Dále',
+            submit: 'Potvrdit',
+            back: 'Zpět',
+            questions: {
+              personal: {
+                sex: {
+                  q: 'Jsem:',
+                  a1: 'Muž',
+                  a2: 'Žena',
+                  a3: 'Jiné / nechci určit',
+                },
+                goal: {
+                  q: 'Můj cíl:',
+                  a1: 'Zhubnout',
+                  a2: 'Jíst zdravě',
+                  a3: 'Nabrat váhu a svaly',
+                },
+                weight: {
+                  q: 'Kolik vážíte?',
+                },
+                age: {
+                  q: 'Kolik je Vám let?',
+                },
+              },
+              food: {
+                diet: {
+                  q: 'Držíte dietu?',
+                  a1: 'Vegan',
+                  a2: 'Vegetarián',
+                  a3: 'Bez laktózy',
+                  a4: 'Bez lepku',
+                },
+                meals: {
+                  q: 'Kolik jídel za den preferujete?',
+                  a1: '3 jídla (snídaně, oběd, večeře)',
+                  a2: '5 jídel (svačiny mezi hlavními jídly)',
+                },
+              },
+              activity: {
+                sport: {
+                  q: 'Sportujete?',
+                  a1: 'Nedělám žádný sport',
+                  a2: 'Sportuji 1-2x do týdne',
+                  a3: 'Sportuji 3-4x do týdne',
+                  a4: 'Sportuji 5x do týdne a více',
+                },
+                job: {
+                  q: 'Máte fyzicky náročnou práci nebo denní aktivity?',
+                  a1: 'Mám sedavou práci a všude jezdím autem, nejsem aktivní.',
+                  a2: 'Jsem aktivní a často chodím pěšky.',
+                  a3: 'Mám fyzicky náročnou práci a jsem hodně aktivní.',
+                },
+              },
+              fat: {
+                q: 'Kolik máte přibližně tuku v těle?',
+              },
+            },
+          },
+          menu: {
+            noData: {
+              headline: 'Dopřejte si zdravý jídelníček zdarma!',
+              text: 'Stačí vyplnit krátký dotazník',
+              buttonForm: 'Chci jídelníček',
+              buttonHome: 'Domů',
+            },
+            headlineTop: 'Váš zdravý',
+            headlineBig: 'Jídelníček na míru',
+            noDiets: 'Žádné diety',
+            meals: {
+              breakfast: 'Snídaně',
+              lunch: 'Oběd',
+              dinner: 'Večeře',
+              snack: 'Svačina',
+            },
+            diets: {
+              vegan: 'Vegan',
+              vegetarian: 'Vegetarián',
+              lactoseFree: 'Bez laktózy',
+              glutenFree: 'Bez lepku',
+            },
+            goal: 'Cíl',
+            calories: 'Kalorie',
+            diet: 'Dieta',
+            instructions: 'Návod',
+            ingredients: 'Ingredience',
+            shoppingList: 'Nákupní seznam',
+            menu: 'Jídelníček',
+            reduce: 'Redukovat váhu',
+            hold: 'Zdravě jíst',
+            gain: 'Nabrat váhu',
+            total: 'Celkem',
+            prep: 'Příprava',
+            cooking: 'Vaření',
+            dificulty: 'Obtížnost',
+          },
+        },
+      },
       en: {
         translation: {
           header: {
@@ -180,178 +353,6 @@ i18next
             prep: 'Preparation',
             cooking: 'Cooking',
             dificulty: 'Dificulty',
-          },
-        },
-      },
-      cz: {
-        translation: {
-          header: {
-            faq: 'Časté otázky',
-            new: 'Novinky',
-            blog: 'Blog',
-            contact: 'Kontakt',
-          },
-          home: {
-            about: {
-              title: {
-                h1: {
-                  firstPart: 'Zdravý jídelníček',
-                  secondPart: 'na míru Vašim potřebám',
-                },
-                h2: 'Zdarma, online a do 5ti minut',
-              },
-              text: {
-                description:
-                  'Za 5 minut můžete mít svůj zdravý jídelníček na míru i s recepty a nákupním seznamem. Stačí vyplnit krátký dotazník, kde se zeptáme na vaši aktivitu, cíle, typ postavy, diety a preference v jídle.',
-                callToAction:
-                  'Vyzkoušejte naši aplikaci a získejte jídelníček na míru zdarma.',
-              },
-              button: 'Chci jídelníček',
-            },
-            benefits: {
-              clients: 'spokojených klientů',
-              yearsBig: '3 roky',
-              years: 'zkušeností ve zdravé výživě',
-              sent: 'vytvořených jídelníčků',
-              headline: 'Zdravý životní styl udržitelně',
-              description:
-                'Již více než 3 roky pomáháme našim klientům najít cestu k udržitelnému zdravému životnímu stylu, dosáhnout vysněné postavy a co víc, získat pevnější zdraví',
-              button: 'Chci jídelníček zdarma',
-            },
-            faq: {
-              headline: 'Časté otázky',
-              q1: 'Mohu použít jídelníček, když mám omezení v jídle?',
-              q2: 'Chci zhubnout, je pro mě jídlěníček vhodný?',
-              q3: 'Mohou se těhotné ženy stravovat podle jídelníčku?',
-              q4: 'Mohou se děti stravovat podle jídelníčku?',
-              q5: 'Chci nabrat váhu, je pro mě jídlěníček vhodný?',
-              q6: 'Jak jídelníček vypočítá můj doporučený denní příjem kalorií?',
-              a1: 'Jídelníček mohou využít lidé s bezlepkovou nebo bezlaktózovou dietou, vegetariáni a vegani. Menu bude obsahovat pouze potraviny podle vaší diety.',
-              a2: 'Ano, jídelníček je vhodný i při redukci váhy. Budete v mírném kalorickém deficitu, aby bylo hubnutí udržitelné a neměli jste hlad.',
-              a3: `Ano, pokud vám lékař nedoporučil jinak. Doporučujeme, abyste si jako cíl zvolili udržení váhy nebo přibírání a dbali na dostatečný příjem potravy.`,
-              a4: 'Jídelníček není určen pro děti do 18 let.',
-              a5: 'Ano, menu je vhodné i pro uživatele, kteří mají za cíl přibrat. Doporučíme vám nutričně hodnotné potraviny, které podporují růst svalové hmoty.',
-              a6: `Ke stanovení bazálního metabolismu používáme Harris-Benedictovu rovnici. Zohledňuje se nejen věk, výška a váha uživatele, ale také jeho aktivita, druh zaměstnání a cíle.`,
-            },
-            articles: {
-              headline: 'Nové články',
-              button: 'Domů',
-            },
-            contact: {
-              headline: `Dejte nám vědět, co máte na srdci`,
-              name: 'Jméno a příjmení',
-              email: 'Email',
-              message: 'Zpráva',
-              button: 'Poslat',
-              buttonSend: 'Děkujeme za zprávu',
-              instagram: 'Sledujte nás na Instagramu',
-            },
-          },
-          footer: {
-            contact: 'Kontakt',
-            Newsletter: 'Newsletter',
-            newsletterDescription: `Zajímají vás novinky ze světa zdravé výživy, nebo se jen chcete dozvědět o nových funkcích v naší aplikaci? Zadejte svůj e-mail a nic vám neunikne.`,
-            button: 'Poslat',
-            info: 'Užitečné informace',
-            docs: 'Dokumenty ke stažení',
-            conditions: 'Podmínky používání',
-            personalData: 'Ochrana osobních údajů',
-          },
-          form: {
-            next: 'Dále',
-            submit: 'Potvrdit',
-            back: 'Zpět',
-            questions: {
-              personal: {
-                sex: {
-                  q: 'Jsem:',
-                  a1: 'Muž',
-                  a2: 'Žena',
-                  a3: 'Jiné / nechci určit',
-                },
-                goal: {
-                  q: 'Můj cíl:',
-                  a1: 'Zhubnout',
-                  a2: 'Jíst zdravě',
-                  a3: 'Nabrat váhu a svaly',
-                },
-                weight: {
-                  q: 'Kolik vážíte?',
-                },
-                age: {
-                  q: 'Kolik je Vám let?',
-                },
-              },
-              food: {
-                diet: {
-                  q: 'Držíte dietu?',
-                  a1: 'Vegan',
-                  a2: 'Vegetarián',
-                  a3: 'Bez laktózy',
-                  a4: 'Bez lepku',
-                },
-                meals: {
-                  q: 'Kolik jídel za den preferujete?',
-                  a1: '3 jídla (snídaně, oběd, večeře)',
-                  a2: '5 jídel (svačiny mezi hlavními jídly)',
-                },
-              },
-              activity: {
-                sport: {
-                  q: 'Sportujete?',
-                  a1: 'Nedělám žádný sport',
-                  a2: 'Sportuji 1-2x do týdne',
-                  a3: 'Sportuji 3-4x do týdne',
-                  a4: 'Sportuji 5x do týdne a více',
-                },
-                job: {
-                  q: 'Máte fyzicky náročnou práci nebo denní aktivity?',
-                  a1: 'Mám sedavou práci a všude jezdím autem, nejsem aktivní.',
-                  a2: 'Jsem aktivní a často chodím pěšky.',
-                  a3: 'Mám fyzicky náročnou práci a jsem hodně aktivní.',
-                },
-              },
-              fat: {
-                q: 'Kolik máte přibližně tuku v těle?',
-              },
-            },
-          },
-          menu: {
-            noData: {
-              headline: 'Dopřejte si zdravý jídelníček zdarma!',
-              text: 'Stačí vyplnit krátký dotazník',
-              buttonForm: 'Chci jídelníček',
-              buttonHome: 'Domů',
-            },
-            headlineTop: 'Váš zdravý',
-            headlineBig: 'Jídelníček na míru',
-            noDiets: 'Žádné diety',
-            meals: {
-              breakfast: 'Snídaně',
-              lunch: 'Oběd',
-              dinner: 'Večeře',
-              snack: 'Svačina',
-            },
-            diets: {
-              vegan: 'Vegan',
-              vegetarian: 'Vegetarián',
-              lactoseFree: 'Bez laktózy',
-              glutenFree: 'Bez lepku',
-            },
-            goal: 'Cíl',
-            calories: 'Kalorie',
-            diet: 'Dieta',
-            instructions: 'Návod',
-            ingredients: 'Ingredience',
-            shoppingList: 'Nákupní seznam',
-            menu: 'Jídelníček',
-            reduce: 'Redukovat váhu',
-            hold: 'Zdravě jíst',
-            gain: 'Nabrat váhu',
-            total: 'Celkem',
-            prep: 'Příprava',
-            cooking: 'Vaření',
-            dificulty: 'Obtížnost',
           },
         },
       },

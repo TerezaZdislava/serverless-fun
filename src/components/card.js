@@ -16,7 +16,7 @@ function Card({ goal, calories, diet }) {
     {
       icon: ElectricBoltRoundedIcon,
       name: t('menu.calories'),
-      selected: calories,
+      selected: Math.ceil(calories),
     },
     {
       icon: RestaurantRoundedIcon,

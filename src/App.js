@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
@@ -16,10 +16,6 @@ function App() {
   const [formData, setFormData] = useState();
   const navigate = useNavigate();
   const { i18n } = useTranslation();
-
-  useEffect(() => {
-    navigate('/');
-  }, [i18n.resolvedLanguage]);
 
   const fetchData = async (formData) => {
     const result = await axios.post('/.netlify/functions/getMeals', {

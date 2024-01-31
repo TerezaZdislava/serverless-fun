@@ -17,19 +17,19 @@ function Meal({ meal }) {
             </div>
             <div className="text">
               <span>{t('menu.dificulty')}</span>
-              <h4>Easy</h4>
+              <h4>{meal?.difficulty}</h4>
             </div>
             <div className="text">
               <span>{t('menu.prep')}</span>
-              <h4>15 min</h4>
+              <h4>{meal?.preparationTime} min</h4>
             </div>
             <div className="text">
               <span>{t('menu.cooking')}</span>
-              <h4>0 min</h4>
+              <h4>{meal?.cookingTime} min</h4>
             </div>
             <div className="text">
               <span>{t('menu.total')}</span>
-              <h4>15 min</h4>
+              <h4>{meal?.preparationTime + meal?.cookingTime} min</h4>
             </div>
           </div>
           <div className="ingredients">
