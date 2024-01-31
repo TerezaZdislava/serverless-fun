@@ -1,54 +1,41 @@
 function mapFormResults(props) {
-  if (props.name === 'gender') {
-    switch (props.val) {
-      case 'male':
-        return 1.5;
-      case 'female':
-        return 1;
-      case 'other':
-        return 1.2;
-      default:
-        return 1.2;
-    }
-  }
-
   if (props.name === 'goal') {
     switch (props.val) {
       case 'reduce':
-        return 0.9;
+        return -0.2;
       case 'hold':
-        return 1;
+        return 0;
       case 'gain':
-        return 2;
+        return 0.2;
       default:
-        return 1;
+        return 0;
     }
   }
 
   if (props.name === 'sport') {
     switch (props.val) {
       case 0:
-        return 1;
+        return 0;
       case 1:
-        return 2;
+        return 0.2;
       case 2:
-        return 3;
+        return 0.3;
       case 3:
-        return 4;
+        return 0.4;
       default:
-        return 2;
+        return 0;
     }
   }
   if (props.name === 'job') {
     switch (props.val) {
       case 0:
-        return 1;
+        return 0;
       case 1:
-        return 2;
+        return 0.2;
       case 2:
-        return 3;
+        return 0.4;
       default:
-        return 2;
+        return 0;
     }
   }
 }
